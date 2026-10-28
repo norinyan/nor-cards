@@ -1,0 +1,9 @@
+{
+  "id": "nor-cards",
+  "name": "Nor Cards",
+  "version": "2.5.0",
+  "minAppVersion": "1.5.0",
+  "description": "Native Markdown paper cards with a live date and simple appearance controls.",
+  "author": "Norin",
+  "isDesktopOnly": false
+}

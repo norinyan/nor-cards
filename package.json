@@ -1,0 +1,22 @@
+{
+  "name": "nor-cards",
+  "version": "2.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit && node esbuild.config.mjs production",
+    "test": "node --import tsx tests/card.test.ts && node --import tsx tests/tasks.test.ts",
+    "package": "npm run build && node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
+    "@types/node": "^22.15.17",
+    "esbuild": "0.25.5",
+    "obsidian": "latest",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  }
+}

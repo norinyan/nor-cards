@@ -1,0 +1,204 @@
+/* Scoped to Nor Cards in Live Preview and reading view. No font downloads. */
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) {
+  --nc-font: "SF Pro Rounded", "PingFang SC", "SF Pro Text", "Segoe UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "Noto Sans", "DejaVu Sans", "Liberation Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --nc-bg: var(--background-primary);
+  --nc-bg: color-mix(in srgb, var(--background-primary) 96%, #e6d7ac);
+  --nc-text: var(--text-normal);
+  --nc-task-text: #292929;
+  --nc-muted: var(--text-muted);
+  --nc-border: var(--background-modifier-border);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  margin: 16px 0 24px;
+  padding: 24px 32px;
+  border: 1px solid var(--nc-border);
+  border-radius: 16px;
+  background: var(--nc-bg);
+  box-shadow: 0 2px 12px var(--background-modifier-box-shadow, rgb(0 0 0 / 4%));
+  color: var(--nc-text);
+  font-family: var(--nc-font);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  text-align: left;
+  mix-blend-mode: normal;
+  overflow: visible;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"])[data-nor-color="green"] {
+  --nc-bg: #edf4e9;
+  --nc-bg: color-mix(in srgb, var(--background-primary) 90%, #86ab79);
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"])[data-nor-color="black"] {
+  --nc-bg: #000;
+  --nc-text: #e6ebe7;
+  --nc-task-text: #e6ebe7;
+  --nc-muted: #9aa79e;
+  --nc-border: #2d3530;
+}
+.theme-dark :is(.nor-card-shell, .callout[data-callout="nor-card"]) { --nc-task-text: #e6e6e6; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-heading { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-title {
+  max-width: 100%; color: var(--nc-task-text); font-family: var(--nc-font);
+  font-size: 22px; font-weight: 600; line-height: 1.6; letter-spacing: 0.3px;
+  text-align: left; overflow-wrap: anywhere; outline: none;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-date {
+  color: var(--nc-muted); font-family: var(--nc-font); font-size: 13px;
+  font-weight: 400; line-height: 1.6; letter-spacing: 0.3px;
+  font-variant-numeric: tabular-nums; text-align: left;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) button.nor-card-date {
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-controls { display: flex; gap: 4px; flex-shrink: 0; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) button.nor-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--nc-muted);
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-button svg { width: 15px; height: 15px; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-button:hover { background: var(--background-modifier-hover); }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) button:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 3px; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) > :is(.nor-card-body, .callout-content) {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--nc-border);
+  overflow-wrap: anywhere;
+}
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) > :is(.nor-card-body, .callout-content)[hidden] { display: none !important; }
+
+/* Preserve the independent editor and its checkbox/caret geometry. */
+.nor-card-shell .nor-card-body > .cm-editor { background: transparent; color: var(--nc-text); font: inherit; outline: none; }
+.nor-card-shell .nor-card-body .cm-scroller { font: inherit; overflow: visible; }
+.nor-card-shell .nor-card-body .cm-content { min-height: 42px; padding: 0; font: inherit; caret-color: var(--nc-text); }
+.nor-card-shell .nor-card-body .cm-line { box-sizing: border-box; min-height: 42px; padding: 9px 0; font-family: var(--nc-font); font-size: 15px; font-weight: 400; line-height: 1.6; text-align: left; }
+.nor-card-shell .nor-card-body .cm-focused { outline: none !important; }
+.nor-card-shell .nor-card-body .cm-cursor { border-left-color: var(--nc-text); }
+.nor-card-shell .nor-card-body .cm-line.nor-card-task-line { position: relative; padding-left: 26px; text-indent: 0; color: var(--nc-task-text); font-size: 16px; font-weight: 450; line-height: 1.5; letter-spacing: 0.3px; }
+.nor-card-shell .nor-card-body .cm-line.nor-card-task-line.nor-card-task-done { color: var(--nc-muted); }
+.nor-card-shell .nor-card-checkbox-slot { display: inline-block; position: relative; width: 0; height: 14px; vertical-align: middle; }
+.nor-card-shell .nor-card-checkbox-slot .nor-card-editor-checkbox { position: absolute; left: -26px; top: 0; width: 14px; height: 14px; margin: 0; }
+.nor-card-shell :is(.nor-card-body-done, .nor-card-task-done) { color: var(--nc-muted); }
+.nor-card-shell .nor-card-body-done { text-decoration: line-through; }
+.nor-card-shell .nor-card-body-strong { font-weight: 600; }
+.nor-card-shell .cm-line.nor-card-task-line:not(.nor-card-task-done) + .nor-card-task-done { margin-top: 8px; }
+.nor-card-shell .nor-card-body .cm-line.nor-card-body-heading { font-size: 15px; font-weight: 500; color: var(--nc-muted); text-align: left; padding-block: 9px; }
+.nor-card-shell .nor-card-error { color: var(--text-error); font-size: 13px; white-space: normal; }
+.nor-card-shell .nor-card-error:empty { display: none; }
+
+/* The same text rhythm in reading view; no changes to other callouts. */
+.callout[data-callout="nor-card"] .callout-content > :first-child { margin-top: 0; }
+.callout[data-callout="nor-card"] .callout-content > :last-child { margin-bottom: 0; }
+.callout[data-callout="nor-card"] .callout-content :is(p, li, h1, h2, h3, h4, h5, h6) { font-family: var(--nc-font); font-size: 15px; line-height: 1.6; text-align: left; }
+.callout[data-callout="nor-card"] .callout-content :is(h1, h2, h3, h4, h5, h6) { margin-block: 16px 10px; color: var(--nc-muted); font-weight: 500; }
+.callout[data-callout="nor-card"] .callout-content p { color: var(--nc-text); font-weight: 400; }
+.callout[data-callout="nor-card"] .contains-task-list { padding-left: 26px; margin-block: 0; }
+.callout[data-callout="nor-card"] .task-list-item { position: relative; box-sizing: border-box; min-height: 42px; padding: 9px 0; color: var(--nc-task-text); font-size: 16px; font-weight: 450; line-height: 1.5; letter-spacing: 0.3px; }
+.callout[data-callout="nor-card"] .task-list-item-checkbox { position: absolute; left: -26px; top: 14px; width: 14px; height: 14px; margin: 0; }
+.callout[data-callout="nor-card"] .task-list-item.is-checked { color: var(--nc-muted); text-decoration: line-through; }
+.callout[data-callout="nor-card"] .callout-content :is(pre, table) { max-width: 100%; overflow-x: auto; }
+
+/* Existing calendar, with no additional chrome. */
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar { max-width: 280px; margin: 10px 0; padding: 10px; border: 1px solid var(--nc-border); border-radius: 10px; background: var(--nc-bg); color: var(--nc-text); font-family: var(--nc-font); font-size: 13px; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar-head { display: flex; align-items: center; justify-content: space-between; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; align-items: center; margin-top: 6px; text-align: center; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar button { height: 30px; padding: 0; border: 0; box-shadow: none; background: transparent; color: var(--nc-text); font-family: inherit; font-size: 13px; }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar button:hover { background: var(--background-modifier-hover); }
+:is(.nor-card-shell, .callout[data-callout="nor-card"]) .nor-card-calendar [aria-pressed="true"] { outline: 1px solid var(--interactive-accent); }
+@media (max-width: 600px) {
+  :is(.nor-card-shell, .callout[data-callout="nor-card"]) { padding: 20px 32px; }
+}
+
+/* A trailing empty task is shown only for explicit Enter or a new empty card. */
+.nor-card-shell .nor-card-body .cm-line.nor-card-task-empty {
+  height: 0;
+  min-height: 0;
+  padding-block: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.nor-card-shell .nor-card-body .cm-focused .cm-line.nor-card-task-empty.nor-card-task-entry-active {
+  height: auto;
+  min-height: 42px;
+  padding-block: 9px;
+  line-height: 1.5;
+}
+.callout[data-callout="nor-card"] .task-list-item.nor-card-task-empty { display: none; }
+/* Sort handles occupy the existing right padding, not the task text column. */
+.nor-card-shell .nor-card-body button.nor-card-drag-handle {
+  position: absolute; right: -25px; top: 10px; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center; padding: 3px;
+  border: 0; border-radius: 5px; background: transparent; box-shadow: none;
+  color: var(--nc-muted); opacity: 0; cursor: grab; touch-action: none;
+  transition: opacity 120ms ease;
+}
+.nor-card-shell .nor-card-drag-handle svg { width: 14px; height: 14px; pointer-events: none; }
+.nor-card-shell .nor-card-task-line:hover .nor-card-drag-handle,
+.nor-card-shell .nor-card-drag-handle:focus-visible { opacity: .65; }
+.nor-card-shell.nor-card-sorting .cm-line { transition: transform 160ms cubic-bezier(.2,.8,.2,1); }
+.nor-card-shell .nor-card-is-dragging { opacity: .3; }
+.nor-card-shell.nor-card-drag-ghost {
+  position: fixed; left: -10000px; top: 0; z-index: 1000; margin: 0; padding: 8px 12px;
+  border-radius: 10px; box-shadow: 0 8px 24px rgb(0 0 0 / 16%); pointer-events: none;
+}
+.nor-card-shell.nor-card-drag-ghost > .nor-card-body { border: 0; margin: 0; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .nor-card-shell.nor-card-sorting .cm-line,
+  .nor-card-shell .nor-card-drag-handle { transition: none; }
+}
+
+/* Whole-card drag is restricted to its header handle. */
+.nor-card-shell .nor-card-controls { position: relative; }
+.nor-card-shell button.nor-card-move-handle {
+  position: absolute; right: calc(100% + 4px); opacity: 0; cursor: grab;
+  transition: opacity 120ms ease;
+}
+.nor-card-shell .nor-card-header:hover .nor-card-move-handle,
+.nor-card-shell .nor-card-move-handle:focus-visible { opacity: .65; }
+.nor-card-shell.nor-card-whole-dragging { opacity: .35; }
+.nor-card-shell.nor-card-whole-ghost {
+  position: fixed; left: -10000px; top: 0; margin: 0; pointer-events: none;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%); max-height: 360px; overflow: hidden;
+}
+.nor-card-drop-line {
+  position: fixed; height: 2px; border-radius: 1px; z-index: 1000;
+  background: var(--interactive-accent); pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nor-card-shell .nor-card-move-handle { transition: none; }
+}
+.cm-content.nor-card-document-sorting > :is(.cm-line, .nor-card-shell) {
+  transition: transform 160ms cubic-bezier(.2,.8,.2,1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-content.nor-card-document-sorting > :is(.cm-line, .nor-card-shell) { transition: none; }
+}
+
+/* Shift list content while keeping the full-width divider aligned with the header. */
+.nor-card-shell .nor-card-body .cm-line.nor-card-task-line { padding-left: 42px; }
+.nor-card-shell .nor-card-body .cm-line.nor-card-task-continuation { padding-left: 16px; }
+.callout[data-callout="nor-card"] .contains-task-list { margin-left: 16px; }
+.callout[data-callout="nor-card"] .contains-task-list .contains-task-list { margin-left: 0; }

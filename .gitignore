@@ -1,0 +1,10 @@
+node_modules/
+main.js
+dist/*
+!dist/nor-cards/
+!dist/nor-cards/main.js
+.test-vault/
+.test-profile/
+artifacts/
+*.log
+.DS_Store
